@@ -1,6 +1,7 @@
 package dw.gameshop.service;
 
 import dw.gameshop.exception.ResourceNotFoundException;
+import dw.gameshop.model.Game;
 import dw.gameshop.model.Purchase;
 import dw.gameshop.model.User;
 import dw.gameshop.repository.PurchaseRepository;
@@ -22,6 +23,8 @@ public class PurchaseService {
     UserRepository userRepository;
 
     public Purchase savePurchase(Purchase purchase) {
+        // 구매확정 바로 직전, 현재시간을 저장함
+        purchase.setPurchaseTime(LocalDateTime.now());
         return purchaseRepository.save(purchase);
     }
 
@@ -34,6 +37,16 @@ public class PurchaseService {
         Optional<User> userOptional = userRepository.findByUserId(userId);
         if (userOptional.isEmpty()) {
             throw new ResourceNotFoundException("User", "ID", userId);
+        }
+        return purchaseRepository.findByUser(userOptional.get());
+    }
+
+    // 유저 '이름'으로 구매한 게임 찾기
+    public List<Purchase> getPurchaseListByUserName(String userName) {
+        // 유저이름으로 유저객체 찾기
+        Optional<User> userOptional = userRepository.findByUserName(userName); // 유저 이름으로 유저 정보 가져오기
+        if (userOptional.isEmpty()) {
+            throw new ResourceNotFoundException("User", "Name", userName);
         }
         return purchaseRepository.findByUser(userOptional.get());
     }

@@ -3,6 +3,8 @@ package dw.gameshop.controller;
 import dw.gameshop.model.Game;
 import dw.gameshop.model.User;
 import dw.gameshop.service.GameShopService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,5 +36,17 @@ public class GameShopController {
     @PostMapping("products/user")
     public User saveUser(@RequestBody User user) {
         return gameShopService.saveUser(user);
+    }
+
+    @GetMapping("/products/maxprice")
+    public ResponseEntity<Game> getGameWithMaxPrice() {
+        return new ResponseEntity<>(gameShopService.getGameWithMaxPrice(),
+                HttpStatus.OK);
+    }
+
+    @GetMapping("/products/maxpricetop3")
+    public ResponseEntity<List<Game>> getGameWirhMaxPriceTop3() {
+        return new ResponseEntity<>(gameShopService.getGameWithMaxPriceTop3(),
+                HttpStatus.OK);
     }
 }

@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8e68c02-6f00-4baa-9aa3-6421c41cd1b0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/gameshop/src/main/java/dw/gameshop/controller/PurchaseController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameshop/src/main/java/dw/gameshop/controller/PurchaseContrallor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameshop/src/main/java/dw/gameshop/exception/ResourceNotFound.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameshop/src/main/java/dw/gameshop/exception/ResourceNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameshop/src/main/java/dw/gameshop/service/PurchaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gameshop/src/main/java/dw/gameshop/service/PurchaseService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

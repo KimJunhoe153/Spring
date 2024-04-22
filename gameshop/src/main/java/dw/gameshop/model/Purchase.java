@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @Table(name = "purchase")
 public class Purchase {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // mariadb에선 이렇게밖에 안쓴다 👀
     private long id;
     @ManyToOne
     @JoinColumn(name = "game_id")
