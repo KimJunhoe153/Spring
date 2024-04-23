@@ -15,7 +15,8 @@ public class Customer {
     }
 
     public Customer(long customerId, String customerName, String customerEmployee,
-                    String employeeTitle, String address, String city, String area, int phoneNumber, int mileage) {
+                    String employeeTitle, String address, String city, String area,
+                    int phoneNumber, int mileage) {
         this.customerId = customerId;
         this.customerName = customerName;
         this.customerEmployee = customerEmployee;

@@ -14,15 +14,15 @@ public class OrderDetail {
     private long id;
     @Column(name = "주문세부번호")
     private long orderDetailId;
-    @Column(length = 255)
+    @Column(name = "order", length = 255)
     private String order;
-    @Column(length = 255)
+    @Column(name = "product", length = 255)
     private String product;
-    @Column(length = 255)
+    @Column(name = "unit_price", length = 255)
     private int unitPrice;
-    @Column(length = 255)
+    @Column(name = "order_quantity", length = 255)
     private int orderQuantity;
-    @Column(length = 255)
+    @Column(name = "discount_rate", length = 255)
     private int discountRate;
 
     public OrderDetail() {

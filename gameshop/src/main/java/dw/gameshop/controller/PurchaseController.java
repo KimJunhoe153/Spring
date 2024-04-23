@@ -1,6 +1,5 @@
 package dw.gameshop.controller;
 
-import dw.gameshop.model.Game;
 import dw.gameshop.model.Purchase;
 import dw.gameshop.service.GameShopService;
 import dw.gameshop.service.PurchaseService;
@@ -11,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController // 웹에 들어오는 요청을 컨트롤학기 위해 이 메소드를 사용할 것임을 알리는 플래그
+@RestController // 웹에 들어오는 요청을 컨트롤하기 위해 이 메소드를 사용할 것임을 알리는 플래그
 public class PurchaseController {
     @Autowired // 객체에 대한 읜존성을 주입
     PurchaseService purchaseService;
