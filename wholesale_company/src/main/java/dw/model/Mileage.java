@@ -1,40 +1,28 @@
 package dw.model;
 
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.persistence.Id;
+import jakarta.persistence.Column;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Entity
+@Table(name = "마일리지")
 public class Mileage {
+    @Id
+    @Column(name = "등급명")
     private int mileageGrade;
+
+    @Column(name = "하한마일리지")
     private int lowLimit;
+
+    @Column(name = "상한마일리지")
     private int highLimit;
-
-    public Mileage() {
-    }
-
-    public Mileage(int mileageGrade, int lowLimit, int highLimit) {
-        this.mileageGrade = mileageGrade;
-        this.lowLimit = lowLimit;
-        this.highLimit = highLimit;
-    }
-
-    public int getMileageGrade() {
-        return mileageGrade;
-    }
-
-    public void setMileageGrade(int mileageGrade) {
-        this.mileageGrade = mileageGrade;
-    }
-
-    public int getLowLimit() {
-        return lowLimit;
-    }
-
-    public void setLowLimit(int lowLimit) {
-        this.lowLimit = lowLimit;
-    }
-
-    public int getHighLimit() {
-        return highLimit;
-    }
-
-    public void setHighLimit(int highLimit) {
-        this.highLimit = highLimit;
-    }
 }

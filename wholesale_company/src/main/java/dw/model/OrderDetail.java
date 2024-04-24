@@ -1,42 +1,38 @@
 package dw.model;
 
 import jakarta.persistence.*;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Getter
 @Setter
-@Table(name = "OrderDetail")
+@Table(name = "주문세부")
 public class OrderDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
     @Column(name = "주문세부번호")
     private long orderDetailId;
-    @Column(name = "order", length = 255)
+
+    @ManyToOne
+    @JoinColumn(name = "주문번호")
     private String order;
-    @Column(name = "product", length = 255)
+
+    @ManyToOne
+    @JoinColumn(name = "제품번호")
     private String product;
-    @Column(name = "unit_price", length = 255)
+
+    @Column(name = "단가")
     private int unitPrice;
-    @Column(name = "order_quantity", length = 255)
+
+    @Column(name = "주문수량")
     private int orderQuantity;
-    @Column(name = "discount_rate", length = 255)
+
+    @Column(name = "할인율")
     private int discountRate;
 
-    public OrderDetail() {
-        super();
-    }
-
-    public OrderDetail(long id, long orderDetailId, String order, String product,
-                       int unitPrice, int orderQuantity, int discountRate) {
-        this.id = id;
-        this.orderDetailId = orderDetailId;
-        this.order = order;
-        this.product = product;
-        this.unitPrice = unitPrice;
-        this.orderQuantity = orderQuantity;
-        this.discountRate = discountRate;
-    }
 }

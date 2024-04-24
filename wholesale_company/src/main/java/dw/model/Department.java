@@ -1,31 +1,26 @@
 package dw.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Entity
+@Table(name = "부서")
 public class Department {
+    @Id
+    @Column (name = "부서번호")
     private long departId;
+
+    @Column(name = "부서명")
     private String departName;
-
-    public Department() {
-    }
-
-    public Department(long departId, String departName) {
-        this.departId = departId;
-        this.departName = departName;
-    }
-
-    public long getDepartId() {
-        return departId;
-    }
-
-    public void setDepartId(long departId) {
-        this.departId = departId;
-    }
-
-    public String getDepartName() {
-        return departName;
-    }
-
-    public void setDepartName(String departName) {
-        this.departName = departName;
-    }
 }
 
