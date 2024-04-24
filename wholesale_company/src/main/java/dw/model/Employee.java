@@ -1,18 +1,46 @@
 package dw.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Id;
+
 public class Employee {
+    @Id
+    @Column(name = "사원ID")
     private long employeeId;
+
+    @Column(name = "이름")
     private String name;
+
+    @Column(name = "영어이름")
     private String englishName;
+
+    @Column(name = "직책")
     private String position;
+
+    @Column(name = "성별")
     private String gender;
+
+    @Column(name = "생일")
     private int birthDate;
+
+    @Column(name = "입사일")
     private int hireDate;
+
+    @Column(name = "주소")
     private String address;
+
+    @Column(name = "도시")
     private String city;
+
+    @Column(name = "지역")
     private String area;
+
+    @Column(name = "전화번호")
     private int telephoneNo;
+
+    @Column(name = "직원ID")
     private long managerId;
+
     private String department;
 
     public Employee() {
