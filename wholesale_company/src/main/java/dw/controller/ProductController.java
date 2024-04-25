@@ -5,23 +5,35 @@ import dw.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/products")
 public class ProductController {
-
     @Autowired
     ProductService productService;
 
-    @PostMapping
-    public ResponseEntity<List<Product>> saveProduct(@RequestBody Product product) {
-        return new ResponseEntity<>(productService.getAllProduct(),
+    @GetMapping("/products")
+    public ResponseEntity<List<Product>> getProductAll() {
+        return new ResponseEntity<>(productService.getProductAll(),
                 HttpStatus.OK);
+    }
+
+    @GetMapping("/products/inventory/under/{num}")
+    public ResponseEntity<List<Product>> getProductByInventoryUnder(@PathVariable int num) {
+        return new ResponseEntity<>(productService.getProductByInventoryUnder(num),
+                HttpStatus.OK);
+    }
+
+    @GetMapping("/porducts/idlist")
+    public ResponseEntity<List<Product>> getProductByIdWithList(@RequestBody List<Long> idList) {
+        return new ResponseEntity<>(productService.getProductByIdWithList(idList),
+                HttpStatus.OK);
+    }
+
+    @GetMapping("/products/pricetop10")
+    public ResponseEntity<List<Product>> getProductByTopPrice(@RequestBody List<Long> unitPriceList) {
+        return new ResponseEntity<>(productService.getProductByPriceRange())
     }
 }

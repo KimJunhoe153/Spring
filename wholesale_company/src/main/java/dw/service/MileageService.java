@@ -14,11 +14,5 @@ public class MileageService {
     @Autowired
     MileageRepository mileageRepository;
 
-    public List<Mileage> getAllMileage() {
-        return mileageRepository.findAll();
-    }
-
-    public Mileage saveMileage(Mileage mileage) {
-        return mileageRepository.save(mileage);
-    }
+    public List<Mileage> getMileageAll() { return mileageRepository.findAll(); }
 }

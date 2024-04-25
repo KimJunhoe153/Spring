@@ -16,15 +16,9 @@ public class DepartmentController {
     @Autowired
     DepartmentService departmentService;
 
-    @PostMapping
-    public ResponseEntity<Department> saveDepartment(@RequestBody Department department) {
-        return new ResponseEntity<>(departmentService.saveDepartment(department),
-                HttpStatus.OK);
-    }
-
     @GetMapping("/departments")
-    public ResponseEntity<List<Department>> getAllDepartments() {
-        return new ResponseEntity<>(departmentService.getAllDepartment(),
+    public ResponseEntity<List<Department>> getDepartmentAll() {
+        return new ResponseEntity<>(departmentService.getDepartmentAll(),
                 HttpStatus.OK);
     }
 }

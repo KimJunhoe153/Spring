@@ -5,23 +5,18 @@ import dw.service.MileageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/mileages")
 public class MileageController {
-
     @Autowired
     MileageService mileageService;
 
-    @PostMapping
-    public ResponseEntity<List<Mileage>> saveMileage(@RequestBody Mileage mileage) {
-        return new ResponseEntity<>(mileageService.getAllMileage(),
+    @GetMapping("/mileages")
+    public ResponseEntity<List<Mileage>> getMileageAll() {
+        return new ResponseEntity<>(mileageService.getMileageAll(),
                 HttpStatus.OK);
     }
 }
