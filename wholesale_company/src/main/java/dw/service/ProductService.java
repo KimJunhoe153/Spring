@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -62,9 +63,21 @@ public class ProductService {
 //                .collect(Collectors.toList());
     }
 
-    public List<Product> getProductByTopPrice(List<Long> priceList) {
+    // 제품 재고금액이 높은 상위 10개 제품
+    public List<Product> getTopProductsByInventoryValue(List<Long> unitPriceList) {
         List<Product> productList = productRepository.findAll();
-        return productList.stream().filter(product ->
-                product.getUnitPrice())
+
+        List<Product> sortedProducts = productList.stream()
+                .sorted(Comparator.comparingInt(Product::getInventory).reversed())
+                .collect(Collectors.toList());
+
+        return sortedProducts.stream().limit(10).collect(Collectors.toList());
+
+//        return productList.stream().sorted(Comparator.comparingInt(
+//                        (Product p) -> p.getUnitPrice() * p.getInventory()).reversed())
+//                .limit(limit)
+//                .collect(Collectors.toList());
+
+
     }
 }

@@ -32,8 +32,9 @@ public class ProductController {
                 HttpStatus.OK);
     }
 
-    @GetMapping("/products/pricetop10")
+    @GetMapping("/products/inventoryprice/")
     public ResponseEntity<List<Product>> getProductByTopPrice(@RequestBody List<Long> unitPriceList) {
-        return new ResponseEntity<>(productService.getProductByPriceRange())
+        return new ResponseEntity<>(productService.getTopProductsByInventoryValue(unitPriceList),
+                HttpStatus.OK);
     }
 }
