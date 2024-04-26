@@ -14,7 +14,7 @@ import jakarta.persistence.Column;
 @Getter
 @Setter
 @Entity
-@Table(name = "마일리지등급")
+@Table(name = "마일리지")
 public class Mileage {
     @Id
     @Column(name = "등급명")

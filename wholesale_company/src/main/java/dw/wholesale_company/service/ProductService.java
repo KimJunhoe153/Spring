@@ -72,12 +72,5 @@ public class ProductService {
                 .collect(Collectors.toList());
 
         return sortedProducts.stream().limit(10).collect(Collectors.toList());
-
-//        return productList.stream().sorted(Comparator.comparingInt(
-//                        (Product p) -> p.getUnitPrice() * p.getInventory()).reversed())
-//                .limit(limit)
-//                .collect(Collectors.toList());
-
-
     }
 }

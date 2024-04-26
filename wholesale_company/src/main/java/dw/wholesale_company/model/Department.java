@@ -17,6 +17,9 @@ import jakarta.persistence.Table;
 @Table(name = "부서")
 public class Department {
     @Id
+    @Column(name = "부서")
+    private String department;
+
     @Column (name = "부서번호")
     private String departId;
 
