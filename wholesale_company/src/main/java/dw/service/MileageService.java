@@ -1,5 +1,6 @@
 package dw.service;
 
+import dw.model.Customer;
 import dw.model.Mileage;
 import dw.repository.MileageRepository;
 import jakarta.transaction.Transactional;

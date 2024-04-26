@@ -1,6 +1,8 @@
 package dw.service;
 
+import dw.exception.ResourceNotFoundException;
 import dw.model.Customer;
+import dw.model.Mileage;
 import dw.repository.CustomerRepository;
 import dw.repository.MileageRepository;
 import dw.repository.OrderRepository;
@@ -8,7 +10,10 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -34,5 +39,18 @@ public class CustomerService {
         }
         Double avg = (double) sum / (double) customers.size();
         return customers.stream().filter(c -> c.getMileage() > avg).collect(Collectors.toList());
+    }
+
+    // 마일리지 등급명별로 고객수를 보이시오
+    public List<Customer> getCustomerByMileageGrade(String grade) {
+        Optional<Mileage> mileageOptional = mileageRepository.findById(grade);
+        if (mileageOptional.isEmpty()) {
+            throw new ResourceNotFoundException("Mileage", "Grade", grade);
+        }
+        List<Customer> customers = customerRepository.findAll();
+        return customers.stream().filter(customer ->
+                        customer.getMileage() >= mileageOptional.get().getLowLimit()
+                                && customer.getMileage() <= mileageOptional.get().getHighLimit())
+                .collect(Collectors.toList());
     }
 }
