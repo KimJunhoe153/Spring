@@ -39,7 +39,7 @@ public class CustomerService {
         return customers.stream().filter(c -> c.getMileage() > avg).collect(Collectors.toList());
     }
 
-    // 마일리지 등급명별로 고객수를 보이시오
+    // 마일리지 등급명별로 고객수
     public List<Customer> getCustomerByMileageGrade(String grade) {
         Optional<Mileage> mileageOptional = mileageRepository.findById(grade);
         if (mileageOptional.isEmpty()) {
